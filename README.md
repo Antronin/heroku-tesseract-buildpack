@@ -1,4 +1,4 @@
-heroku-tesseract-buildpack
-==========================
+Heroku Tesseract-ocr & Leptonica buildpack
+==========================================
 
-Tessract-ocr and leptonica headers and binaries packed to use on Heroku
+Tesseract-ocr and Leptonica headers and binaries packed to use on Heroku
