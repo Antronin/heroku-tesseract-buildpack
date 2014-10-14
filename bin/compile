@@ -1,0 +1,42 @@
+#!/bin/sh
+
+indent() {
+  sed -u 's/^/       /'
+}
+
+export_env_dir() {
+  env_dir=$1
+  whitelist_regex=${2:-''}
+  blacklist_regex=${3:-'^(PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH)$'}
+  if [ -d "$env_dir" ]; then
+    for e in $(ls $env_dir); do
+      echo "$e" | grep -E "$whitelist_regex" | grep -qvE "$blacklist_regex" &&
+      export "$e=$(cat $env_dir/$e)"
+      :
+    done
+  fi
+}
+
+BUILD_DIR=$1
+CACHE_DIR=$2
+ENV_DIR=$3
+
+export_env_dir(ENV_DIR)
+
+TESSERACT_LEPT_TGZ=tesseract-leptonica.tar.gz
+TESSERACT_LEPT_REMOTE=https://dl.dropboxusercontent.com/u/5842630/$TESSERACT_LEPT_TGZ
+INSTALL_DIR=$BUILD_DIR/vendor/
+TESSERACT_OCR_DIR=${HOME}/vendor/tesseract
+LEPTONICA_DIR=${HOME}/vendor/leptonica
+
+echo "-----> Getting Tesseract and Leptonica libs from $TESSERACT_LEPT_REMOTE..."
+mkdir -p $INSTALL_DIR
+curl $TESSERACT_LEPT_REMOTE -o - | tar -xz -C $INSTALL_DIR -f -
+
+echo 'Done'|indent
+
+echo "Building runtime environment for tesseract-ocr"
+export PATH=\"$TESSERACT_OCR_DIR:\$PATH\"
+export PATH=\"$LEPTONICA_DIR:\$PATH\"
+export LD_LIBRARY_PATH=\"$TESSERACT_OCR_DIR:\$LD_LIBRARY_PATH\"
+export LD_LIBRARY_PATH=\"$LEPTONICA_DIR:\$LD_LIBRARY_PATH\"
