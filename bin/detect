@@ -1,3 +1,3 @@
 #!/bin/sh
-echo "Leptonic 1.71"
+echo "Leptonica 1.71"
 exit 0
