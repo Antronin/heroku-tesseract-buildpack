@@ -21,7 +21,7 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
-export_env_dir(ENV_DIR)
+export_env_dir($ENV_DIR)
 
 TESSERACT_LEPT_TGZ=tesseract-leptonica.tar.gz
 TESSERACT_LEPT_REMOTE=https://dl.dropboxusercontent.com/u/5842630/$TESSERACT_LEPT_TGZ
