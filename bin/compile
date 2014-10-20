@@ -40,5 +40,5 @@ echo "Building runtime environment for tesseract-ocr"
 mkdir -p $BUILD_DIR/.profile.d
 echo "export PATH=\"$TESSERACT_OCR_DIR:$LEPTONICA_DIR:\$PATH\"" > $ENVSCRIPT
 echo "export LIBRARY_PATH=\"$TESSERACT_OCR_DIR:$LEPTONICA_DIR:\$LIBRARY_PATH\"" >> $ENVSCRIPT
-echo "export LD_LIBRARY_PATH=\"$TESSERACT_OCR_DIR:$LEPTONICA_DIR:\$LD_LIBRARY_PATH\"" >> $ENVSCRIPT
+echo "export LD_LIBRARY_PATH=\"$TESSERACT_OCR_DIR:$LEPTONICA_DIR:/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH\"" >> $ENVSCRIPT
 echo "export CPATH=\"$INSTALL_DIR\$CPATH\"" >> $ENVSCRIPT
