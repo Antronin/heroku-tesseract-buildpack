@@ -26,8 +26,8 @@ export_env_dir $ENV_DIR
 TESSERACT_LEPT_TGZ=tesseract-leptonica.tar.gz
 TESSERACT_LEPT_REMOTE=https://dl.dropboxusercontent.com/u/5842630/$TESSERACT_LEPT_TGZ
 INSTALL_DIR=$BUILD_DIR/vendor/
-TESSERACT_OCR_DIR=${HOME}/vendor/tesseract
-LEPTONICA_DIR=${HOME}/vendor/leptonica
+TESSERACT_OCR_DIR=$BUILD_DIR/vendor/tesseract
+LEPTONICA_DIR=$BUILD_DIR/vendor/leptonica
 ENVSCRIPT=$BUILD_DIR/.profile.d/tesseract-lept.sh
 
 echo "-----> Getting Tesseract and Leptonica libs from $TESSERACT_LEPT_REMOTE..."
