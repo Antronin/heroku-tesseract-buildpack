@@ -24,7 +24,7 @@ ENV_DIR=$3
 export_env_dir $ENV_DIR
 
 TESSERACT_LEPT_TGZ=tesseract-leptonica.tar.gz
-TESSERACT_LEPT_REMOTE=https://dl.dropboxusercontent.com/u/5842630/$TESSERACT_LEPT_TGZ
+TESSERACT_LEPT_REMOTE=https://www.dropbox.com/s/45mkoczjuu40r0i/$TESSERACT_LEPT_TGZ
 INSTALL_DIR=$BUILD_DIR/vendor/
 TESSERACT_OCR_DIR=$BUILD_DIR/vendor/tesseract
 LEPTONICA_DIR=$BUILD_DIR/vendor/leptonica
